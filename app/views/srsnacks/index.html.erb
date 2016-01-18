@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Snacks</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Follow count</th>
+      <th>Photo</th>
+      <th>Pchome url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @srsnacks.each do |srsnack| %>
+      <tr>
+        <td><%= srsnack.name %></td>
+        <td><%= srsnack.follow_count %></td>
+        <td><%= srsnack.photo %></td>
+        <td><%= srsnack.pchome_url %></td>
+        <td><%= link_to 'Show', srsnack %></td>
+        <td><%= link_to 'Edit', edit_srsnack_path(srsnack) %></td>
+        <td><%= link_to 'Destroy', srsnack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Srsnack', new_srsnack_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @srsnack.name %>
+</p>
+
+<p>
+  <strong>Follow count:</strong>
+  <%= @srsnack.follow_count %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @srsnack.photo %>
+</p>
+
+<p>
+  <strong>Pchome url:</strong>
+  <%= @srsnack.pchome_url %>
+</p>
+
+<%= link_to 'Edit', edit_srsnack_path(@srsnack) %> |
+<%= link_to 'Back', srsnacks_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  follow_count: 1
+  photo: MyString
+  pchome_url: MyString
+
+two:
+  name: MyString
+  follow_count: 1
+  photo: MyString
+  pchome_url: MyString
