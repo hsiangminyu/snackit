@@ -6,7 +6,7 @@ module API
       resource :snacks do
         desc "Return all snacks"
         get "", root: :snacks do
-          Srsnack.all
+          Snack.all
         end
 
         desc "Return a snacks"
@@ -15,7 +15,7 @@ module API
             snack"
         end
         get ":id", root: "snacks" do
-          Srsnack.where(id: permitted_params[:id]).first!
+          Snack.where(id: permitted_params[:id]).first!
         end
       end
     end

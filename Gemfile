@@ -23,6 +23,12 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'grape'
 gem 'grape-active_model_serializers'
+
+# devices for login
+gem 'devise'
+gem 'devise_token_auth' # Token based authentication for Rails JSON APIs
+gem 'omniauth' # required for devise_token_auth
+
 gem 'bootstrap-sass'
 
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -49,4 +55,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
