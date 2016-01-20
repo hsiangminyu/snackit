@@ -11,13 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119080226) do
+ActiveRecord::Schema.define(version: 20160120082716) do
+
+  create_table "api_keys", force: :cascade do |t|
+    t.string   "access_token"
+    t.datetime "expires_at"
+    t.integer  "user_id"
+    t.boolean  "active"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "api_keys", ["access_token"], name: "index_api_keys_on_access_token", unique: true
+  add_index "api_keys", ["user_id"], name: "index_api_keys_on_user_id"
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "snack_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "snack_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "snacks", force: :cascade do |t|
     t.string   "name"
     t.integer  "favorite_count"
     t.string   "photo"
-    t.string   "pchome_url"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -42,13 +67,11 @@ ActiveRecord::Schema.define(version: 20160119080226) do
     t.string   "nickname"
     t.string   "image"
     t.string   "email"
-    t.text     "tokens"
+    t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
 
 end
