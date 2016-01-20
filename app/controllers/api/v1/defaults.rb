@@ -1,4 +1,4 @@
-module API  
+module API
   module V1
     module Defaults
       extend ActiveSupport::Concern
@@ -8,17 +8,27 @@ module API
         version "v1", using: :path
         default_format :json
         format :json
-        formatter :json, 
-             Grape::Formatter::ActiveModelSerializers
+        formatter :json,
+          Grape::Formatter::ActiveModelSerializers
 
         helpers do
           def permitted_params
-            @permitted_params ||= declared(params, 
-               include_missing: false)
+            @permitted_params ||= declared(params,
+                                           include_missing: false)
           end
+
+          def error_message(user)
+              user.errors.messages.map { |k,v| "#{k.to_s.capitalize} #{v[0]}." }.join(" ")
+          end
+
 
           def logger
             Rails.logger
+          end
+
+          def current_user
+            # binding.pry
+            User.find_by_token(params[:user_token])
           end
         end
 
@@ -32,4 +42,4 @@ module API
       end
     end
   end
-end  
+end
