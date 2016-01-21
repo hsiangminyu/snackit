@@ -40,7 +40,7 @@ module API
               # user.update_attributes(device_token: params[:device_token])
               { auth_token: user.token,
                 name: user.name,
-                avatar_url: user.photo
+                # avatar_url: user.photo
                 }
             else
               error_message =error_message(user)
